@@ -1,7 +1,7 @@
 import slideMenu from './menu.js';
 import switchHeader from './logoHeader.js';
 import renderVideo from './renderVideo.js';
-import renderOtherVideo from './renderOtherVideo.js';
+import menuLink from './menuLink.js';
 
 slideMenu({
     openBtn: '.header__burger-btn',
@@ -12,4 +12,4 @@ slideMenu({
 
 switchHeader();
 renderVideo();
-renderOtherVideo();
+menuLink();
