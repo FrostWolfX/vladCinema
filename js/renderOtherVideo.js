@@ -4,8 +4,8 @@ const otherFilmsList = document.querySelector('.other-films__list');
 
 const otherFilmsHTML = data => {
     let tempData = '';
-    console.log(data);
-    data.forEach(element => {
+    for (let i = 1; i < data.length; i++) {
+        const element = data[i];
         tempData += `
             <li class="other-films__item">
                 <a class="other-films__link" data-rating="${element.vote_average}">
@@ -15,7 +15,8 @@ const otherFilmsHTML = data => {
                 </a>
             </li>
         `;
-    });
+    }
+    
     otherFilmsList.innerHTML = tempData; 
 };
 
