@@ -24,7 +24,7 @@ export const getTriends = async (type = 'all', period = 'week', page = 1) => {
 export const getTop = async (type, page = 1) => {
     const url = new URL(`${type}/top_rated`, BASE_URL);
     url.search = `api_key=${API_KEY}${LANGUAGE}&page=${page}`;
-    return await getData(url.toString());
+    return await getData(url.href);
 };
 
 export const getPopular = async (type, page = 1) => {
@@ -42,5 +42,5 @@ export const getVideo = async (id, type) => {
 export const search = async (query, page = 1) => {
     const url = new URL(`search/multi`, BASE_URL);
     url.search = `api_key=${API_KEY}${LANGUAGE}&page=${page}&include_adult=false&query=${query}`;
-    return await getData(url.toString());
+    return await getData(url.href);
 };
