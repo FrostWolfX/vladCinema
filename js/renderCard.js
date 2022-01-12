@@ -10,7 +10,6 @@ const renderCard = data => {
 
         const video = await getVideo(item.id, item.media_type);
         const key = video.results[0]?.key;
-        console.log('key: ', key);
 
         const card = document.createElement('li');
         card.className = 'other-films__item';
