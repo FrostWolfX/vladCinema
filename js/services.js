@@ -7,6 +7,7 @@ const LANGUAGE = '&language=ru-RU'
 */
 
 const getData = url => fetch(url)
+
     .then(response => {
         if (response.ok) {
             return response.json();
@@ -23,24 +24,23 @@ export const getTriends = async (type = 'all', period = 'week', page = 1) => {
 export const getTop = async (type, page = 1) => {
     const url = new URL(`${type}/top_rated`, BASE_URL);
     url.search = `api_key=${API_KEY}${LANGUAGE}&page=${page}`;
-    return await getData(url);
+    return await getData(url.toString());
 };
 
 export const getPopular = async (type, page = 1) => {
-    const url = `${BASE_URL}${type}/popular?api_key=${API_KEY}${LANGUAGE}&page=${page}`;
-    return await getData(url);
+    const url = new URL(`${type}/popular`, BASE_URL);
+    url.search = `api_key=${API_KEY}${LANGUAGE}&page=${page}`;
+    return await getData(url.href);
 };
 
 export const getVideo = async (id, type) => {
     const url = new URL(`${type}/${id}/videos`, BASE_URL);
     url.search = `api_key=${API_KEY}${LANGUAGE}`;
-    return await getData(url);
+    return await getData(url.href);
 };
 
-export const search = async (query, page) => {
-    const url = new URL(`${type}/${id}/search/multi`, BASE_URL);
+export const search = async (query, page = 1) => {
+    const url = new URL(`search/multi`, BASE_URL);
     url.search = `api_key=${API_KEY}${LANGUAGE}&page=${page}&include_adult=false&query=${query}`;
-    return await getData(url);
+    return await getData(url.toString());
 };
-
-//https://api.themoviedb.org/3/search/multi?api_key=<<api_key>>&language=en-US&page=1&include_adult=false
