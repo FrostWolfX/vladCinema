@@ -7,12 +7,14 @@ import { getTriends } from "./services.js";
 
 const pagePrev = document.querySelector('.page-prev');
 const pageNext = document.querySelector('.page-next');
+const paginationForm = document.querySelector('.pagination-form');
 const pageInput = document.querySelector('#page');
 
 
 const basePages = () => {
     const basePage = {
         page: getPageLS(),
+        section: getSectionLS(),
 
         updatePage(pageNumber) {
             pageNumber = +pageNumber;
@@ -24,9 +26,27 @@ const basePages = () => {
         },
     }
 
-    function pageInputText(event) {
+    const pageInputText = async(event) => {
         event.preventDefault();
-        console.log(12);
+        const page = +pageInput.value;
+        if (typeof(page) === 'number') {
+            const section = JSON.parse(localStorage.getItem('section'));
+            const type = JSON.parse(localStorage.getItem('type'));
+
+            const data = await getData(section, type, page);
+            if (page > 0 && data !== 'undefined') {
+                if (page <= data.total_pages) {
+                    basePage.updatePage(page);
+                    setPageLS();
+
+                    getData(section, type, page);
+                    pageInput.value = page;
+                }
+            }
+        } else {
+            console.log('не число или страницы не существует');
+        }
+
     }
 
     function pagePrevClick(event) {
@@ -35,7 +55,6 @@ const basePages = () => {
             const prevPage = +getPageLS() - 1;
             basePage.updatePage(prevPage);
             setPageLS();
-            console.log(basePage.page);
 
             const section = JSON.parse(localStorage.getItem('section'));
             const type = JSON.parse(localStorage.getItem('type'));
@@ -51,7 +70,6 @@ const basePages = () => {
         const nextPage = +getPageLS() + 1;
         basePage.updatePage(nextPage);
         setPageLS();
-        console.log(basePage.page);
 
         const section = JSON.parse(localStorage.getItem('section'));
         const type = JSON.parse(localStorage.getItem('type'));
@@ -59,41 +77,57 @@ const basePages = () => {
         pageInput.value = nextPage;
     }
 
-    function getData(section, type, page) {
+    const getData = async(section, type, page) => {
+        console.log('section: ', section);
         switch (section) {
             case 'link_triends':
-                getTriends('all', 'week', page)
+                return await getTriends('all', 'week', page)
                     .then(data => {
                         console.log('data: ', data);
-                        renderCard(data.results, type);
+                        if (data) {
+                            renderCard(data.results, type);
+                        }
+                        return data;
                     });
                 break;
             case 'popular-movies':
-                getPopular(type, page)
+                return await getPopular(type, page)
                     .then(data => {
                         console.log('data: ', data);
-                        renderCard(data.results, type);
+                        if (data) {
+                            renderCard(data.results, type);
+                        }
+                        return data;
                     });
                 break;
             case 'popular-tv':
-                getPopular(type, page)
+                return await getPopular(type, page)
                     .then(data => {
                         console.log('data: ', data);
-                        renderCard(data.results, type);
+                        if (data) {
+                            renderCard(data.results, type);
+                        }
+                        return data;
                     });
                 break;
             case 'top-movies':
-                getTop(type, page)
+                return await getTop(type, page)
                     .then(data => {
                         console.log('data: ', data);
-                        renderCard(data.results, type);
+                        if (data) {
+                            renderCard(data.results, type);
+                        }
+                        return data;
                     });
                 break;
             case 'top-tv':
-                getTop(type, page)
+                return await getTop(type, page)
                     .then(data => {
                         console.log('data: ', data);
-                        renderCard(data.results, type);
+                        if (data) {
+                            renderCard(data.results, type);
+                        }
+                        return data;
                     });
                 break;
 
@@ -113,6 +147,13 @@ const basePages = () => {
         return 1;
     }
 
+    function getSectionLS() {
+        if (localStorage.getItem('section')) {
+            return JSON.parse(localStorage.getItem('section'));
+        }
+        return 'link_triends';
+    }
+
     /**
      * запись в Local Storage браузера
      */
@@ -121,7 +162,12 @@ const basePages = () => {
     }
     setPageLS();
 
-    pageInput.addEventListener('submit', pageInputText);
+    function setSectionLS() {
+        localStorage.setItem('section', JSON.stringify(basePage.section));
+    }
+    setSectionLS();
+
+    paginationForm.addEventListener('submit', pageInputText);
     pagePrev.addEventListener('click', pagePrevClick);
     pageNext.addEventListener('click', pageNextClick);
 }

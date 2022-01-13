@@ -8,6 +8,7 @@ import { getTriends } from "./services.js";
 const title = document.querySelector('.other-films__title');
 const filmWeek = document.querySelector('.film-week');
 const getNav = document.querySelectorAll('.get-nav');
+const pageInput = document.querySelector('#page');
 
 const menuLink = () => {
     getNav.forEach(nav => {
@@ -23,9 +24,11 @@ const menuLink = () => {
                     getTriends()
                         .then(data => {
                             renderCard(data.results);
+
                             localStorage.setItem('section', JSON.stringify('link_triends'));
                             localStorage.setItem('type', JSON.stringify(''));
                             localStorage.setItem('page', JSON.stringify(1));
+                            pageInput.value = 1;
                         });
                 }
 
@@ -36,6 +39,7 @@ const menuLink = () => {
                             localStorage.setItem('section', JSON.stringify('popular-movies'));
                             localStorage.setItem('type', JSON.stringify('movie'));
                             localStorage.setItem('page', JSON.stringify(1));
+                            pageInput.value = 1;
                         });
                 }
                 if (target.classList.contains('get-nav__link_popular-tv')) {
@@ -45,6 +49,7 @@ const menuLink = () => {
                             localStorage.setItem('section', JSON.stringify('popular-tv'));
                             localStorage.setItem('type', JSON.stringify('tv'));
                             localStorage.setItem('page', JSON.stringify(1));
+                            pageInput.value = 1;
                         });
                 }
 
@@ -54,6 +59,7 @@ const menuLink = () => {
                     localStorage.setItem('section', JSON.stringify('top-movies'));
                     localStorage.setItem('type', JSON.stringify('movie'));
                     localStorage.setItem('page', JSON.stringify(1));
+                    pageInput.value = 1;
                 }
                 if (target.classList.contains('get-nav__link_top-tv')) {
                     getTop('tv')
@@ -61,6 +67,7 @@ const menuLink = () => {
                     localStorage.setItem('section', JSON.stringify('top-tv'));
                     localStorage.setItem('type', JSON.stringify('tv'));
                     localStorage.setItem('page', JSON.stringify(1));
+                    pageInput.value = 1;
                 }
             }
         });
