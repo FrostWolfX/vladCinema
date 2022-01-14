@@ -29,7 +29,7 @@ const basePages = () => {
     }
 
     const pageInputText = async(event) => {
-        //event.preventDefault();
+        event.preventDefault();
         filmWeek.style.display = 'none';
         const page = +pageInput.value;
         if (typeof(page) === 'number') {
