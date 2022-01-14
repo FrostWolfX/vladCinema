@@ -37,7 +37,8 @@ const basePages = () => {
             const type = JSON.parse(localStorage.getItem('type'));
 
             const data = await getData(section, type, page);
-            if (page > 0 && data !== 'undefined') {
+
+            if (page > 0 && data !== undefined) {
                 if (page <= data.total_pages) {
                     basePage.updatePage(page);
                     setPageLS();
