@@ -8,11 +8,9 @@ html {
     box-sizing: inherit;
 }
 
-
 body {
     min-width: 320px;
     min-height: 100vh;
-
     padding-top: 50px;
     font-family: Inter, sans-serif;
     background-color: var(--color-bg);
@@ -24,7 +22,10 @@ img {
     height: auto;
 }
 
-h1, h2, p, ul {
+h1,
+h2,
+p,
+ul {
     margin: 0;
 }
 
@@ -47,7 +48,7 @@ a:hover {
     color: var(--color-primary);
 }
 
-input[type="search" i]::-webkit-search-cancel-button{
+input[type="search" i]::-webkit-search-cancel-button {
     -webkit-appearance: none;
 }
 
@@ -62,11 +63,11 @@ input[type="search" i]::-webkit-search-cancel-button{
         padding-top: 30px;
     }
 }
+
 @media (max-width: 480px) {
     body {
         padding-top: 15px;
     }
-
     .container {
         padding: 0 15px;
     }

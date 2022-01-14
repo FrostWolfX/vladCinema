@@ -1,5 +1,4 @@
 import slideMenu from './menu.js';
-import switchHeader from './logoHeader.js';
 import renderVideo from './renderVideo.js';
 import menuLink from './menuLink.js';
 import search from './search.js';
@@ -13,7 +12,6 @@ slideMenu({
     closeTrigger: '.navigation__link, .navigation__close'
 });
 
-switchHeader();
 renderVideo();
 menuLink();
 search();

@@ -15,13 +15,13 @@ ul.pagination li a {
     color: #fff;
     background-color: var(--color-second);
     border-radius: 6px;
-    padding: 20px 60px;
+    padding: 1em 2em;
     font-size: 18px;
 }
 
 ul.pagination #page {
     width: 100px;
-    height: 62px;
+    height: 3em;
     border-radius: 6px;
     background-color: var(--color-search);
     border: none;
