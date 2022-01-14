@@ -168,8 +168,15 @@ const basePages = () => {
     }
     setSectionLS();
 
-    paginationForm.addEventListener('submit', pageInputText);
-    pagePrev.addEventListener('click', pagePrevClick);
-    pageNext.addEventListener('click', pageNextClick);
+    if (paginationForm !== null) {
+        paginationForm.addEventListener('submit', pageInputText);
+    }
+    if (pagePrev !== null) {
+        pagePrev.addEventListener('click', pagePrevClick);
+    }
+    if (pageNext !== null) {
+        pageNext.addEventListener('click', pageNextClick);
+    }
+
 }
 export default basePages;

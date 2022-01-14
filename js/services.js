@@ -39,3 +39,9 @@ export const search = async(query, page = 1) => {
     url.search = `api_key=${API_KEY}${LANGUAGE}&page=${page}&include_adult=false&query=${query}`;
     return await getData(url.href);
 };
+
+export const getDetails = async(id, typeMovie) => {
+    const url = new URL(`${typeMovie}/${id}`, BASE_URL);
+    url.search = `api_key=${API_KEY}${LANGUAGE}`;
+    return await getData(url.href);
+}

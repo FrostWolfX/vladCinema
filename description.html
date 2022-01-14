@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vlad Cinema</title>
+
+    <link rel="icon" href="img/me.svg">
+    <link rel="stylesheet" href="style/style.css">
+
+    <script src="js/index.js?v=2" type="module"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a href="index.html">
+                <p class="header__logo">
+                    <span class="header__logo-primary">VLAD</span> CINEMA
+                </p>
+            </a>
+            <form class="header__search-form" action="#">
+                <input class="header__search-input" type="search" name="search" required="" placeholder="Поиск">
+            </form>
+
+            <button class="header__burger-btn" aria-label="открыть меню">
+                <svg class="header__burger-svg" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.94403 9.8959H34.6564" stroke-width="2.475" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M28.0537 19.8H4.94403" stroke-width="2.475" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M4.94403 29.7041H21.4509" stroke-width="2.475" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="film-week">
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__column contacts">
+                <a href="/index.html">
+                    <p class="contacts__logo">
+                        <span class="contacts__logo-primary">Vlad</span> Cinema
+                    </p>
+                </a>
+                <p class="contacts__description">онлайн-кинотеатр</p>
+
+                <a href="tel:880011111111" class="contacts__phone">8 800 111 11 11</a>
+
+                <a href="mailto:help@vladcinema.ru" class="contacts__mail">help@vladcinema.ru</a>
+
+                <a href="mailto:pressa@vladcinema.ru" class="contacts__mail">pressa@vladcinema.ru</a>
+            </div>
+
+            <div class="footer__column subnav">
+                <ul class="subnav__list get-nav">
+                    <li class="subnav__item">
+                        <a href="/index.html" class="subnav__link get-nav__link get-nav__link_triends">В тренде</a>
+                    </li>
+
+                    <li class="subnav__item">
+                        <a href="/index.html" class="subnav__link get-nav__link get-nav__link_popular-movies">Популярные Фильмы</a>
+                    </li>
+
+                    <li class="subnav__item">
+                        <a href="/index.html" class="subnav__link get-nav__link get-nav__link_popular-tv">Популярные сериалы</a>
+                    </li>
+
+                    <li class="subnav__item">
+                        <a href="/index.html" class="subnav__link get-nav__link get-nav__link_top-movies">Top Фильмов</a>
+                    </li>
+
+                    <li class="subnav__item">
+                        <a href="/index.html" class="subnav__link get-nav__link get-nav__link_top-tv">Top Сериалы</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer__column regulation">
+                <img class="regulation__age" src="img/18+.svg" alt="Только для совершеннолетних">
+                <p class="regulation__offer">Просматривая материалы, находящиеся на настоящем сайте, вы&nbsp;обязуетесь выполнять условия Публичной оферты</p>
+            </div>
+
+            <!--<div class="footer__column partners">-->
+            <!--    <img class="partners__me" src="" alt="">-->
+            <!--    <p class="partners__description"></p>-->
+            <!--</div>-->
+        </div>
+    </footer>
+
+
+    <nav class="navigation">
+        <ul class="navigation__list get-nav">
+            <li class="navigation__item">
+                <a href="/index.html" class="navigation__link get-nav__link get-nav__link_triends">В тренде</a>
+            </li>
+
+            <li class="navigation__item">
+                <a href="/index.html" class="navigation__link get-nav__link get-nav__link_popular-movies">Популярные Фильмы</a>
+            </li>
+
+            <li class="navigation__item">
+                <a href="/index.html" class="navigation__link get-nav__link get-nav__link_popular-tv">Популярные сериалы</a>
+            </li>
+
+            <li class="navigation__item">
+                <a href="/index.html" class="navigation__link get-nav__link get-nav__link_top-movies">Top Фильмов</a>
+            </li>
+
+            <li class="navigation__item">
+                <a href="/index.html" class="navigation__link get-nav__link get-nav__link_top-tv">Top Сериалы</a>
+            </li>
+        </ul>
+        <button class="navigation__close">
+            <svg class="navigation__close-cross" height="30" viewBox="0 0 365.696 365.696" width="30" xmlns="http://www.w3.org/2000/svg">
+                <path d="m243.1875 182.859375 113.132812-113.132813c12.5-12.5 12.5-32.765624 0-45.246093l-15.082031-15.082031c-12.503906-12.503907-32.769531-12.503907-45.25 0l-113.128906 113.128906-113.132813-113.152344c-12.5-12.5-32.765624-12.5-45.246093 0l-15.105469 15.082031c-12.5 12.503907-12.5 32.769531 0 45.25l113.152344 113.152344-113.128906 113.128906c-12.503907 12.503907-12.503907 32.769531 0 45.25l15.082031 15.082031c12.5 12.5 32.765625 12.5 45.246093 0l113.132813-113.132812 113.128906 113.132812c12.503907 12.5 32.769531 12.5 45.25 0l15.082031-15.082031c12.5-12.503906 12.5-32.769531 0-45.25zm0 0"></path>
+            </svg>
+        </button>
+    </nav>
+
+</body>
+
+</html>

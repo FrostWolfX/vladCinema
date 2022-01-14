@@ -1,20 +1,20 @@
-import { getTriends, getVideo } from "./services.js";
+import { getTriends, getVideo, getDetails } from "./services.js";
 import renderCard from "./renderCard.js";
 
 const filmWeek = document.querySelector('.film-week');
 
 const firstRender = (data, video) => {
-    const key = video ? video.key : '';
-    const {
-        vote_average: voteAverage,
-        backdrop_path: backdropPath,
-        title,
-        name,
-        original_title: originalTitle,
-        original_name: originalName,
+        const key = video ? video.key : '';
+        const {
+            vote_average: voteAverage,
+            backdrop_path: backdropPath,
+            title,
+            name,
+            original_title: originalTitle,
+            original_name: originalName,
 
-    } = data;
-    filmWeek.innerHTML = `
+        } = data;
+        filmWeek.innerHTML = `
         <div class="container film-week__container" data-rating="${voteAverage}">
             <div class="film-week__poster-wrapper">
                 <img class="film-week__poster" 
@@ -33,15 +33,32 @@ const firstRender = (data, video) => {
 };
 
 const renderVideo = async () => {
-    const data = await getTriends();
+    let data;
+    let video;
+    if($_GET('id') && $_GET('type')) {
+        data = await getDetails($_GET('id'), $_GET('type'));
+        video = await getVideo(data.id, $_GET('type'));
+        firstRender(data, video.results[0]);
+        console.log('video: ', video);
+    } else {
+        data = await getTriends();
 
-    const [firstCard, ...otherCard] = data.results;
-    otherCard.length = 16;
+        const [firstCard, ...otherCard] = data.results;
+        otherCard.length = 16;
 
-    const video = await getVideo(firstCard.id, firstCard.media_type);
+        video = await getVideo(firstCard.id, firstCard.media_type);
 
-    firstRender(firstCard, video.results[0]);
-    renderCard(otherCard);
+        firstRender(firstCard, video.results[0]);
+        renderCard(otherCard);
+    }
+    console.log('data: ', data);
+
 };
+
+function $_GET(key) {
+    var p = window.location.search;
+    p = p.match(new RegExp(key + '=([^&=]+)'));
+    return p ? p[1] : false;
+}
 
 export default renderVideo;

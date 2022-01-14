@@ -16,7 +16,7 @@ const menuLink = () => {
 
             const target = event.target.closest('.get-nav__link');
             if (target) {
-                event.preventDefault();
+                //event.preventDefault();
                 filmWeek.style.display = 'none';
                 title.textContent = target.textContent;
 

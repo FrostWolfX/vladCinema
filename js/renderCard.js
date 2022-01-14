@@ -5,9 +5,13 @@ const listCard = document.querySelector('.other-films__list');
 
 
 const renderCard = (data, type = '') => {
+
+    if (listCard === null) {
+        return;
+    }
+
     listCard.textContent = '';
     loadingBlock.startLoad();
-
     Promise.all(data.map(async(item) => {
             const video = await getVideo(item.id, item.media_type || type);
 
@@ -34,8 +38,16 @@ const renderCard = (data, type = '') => {
                 `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${item.poster_path}` :
                 'img/no-poster.png';
 
+            const more = document.createElement('a');
+            more.href = `/description.html?id=${item.id}&type=${item.media_type || type}`;
+            more.classList.add('more');
+            more.dataset.id = item.id;
+            more.textContent = 'Подробнее...';
+
             link.append(img);
             card.append(link);
+
+            card.append(more);
 
             return card;
         }))
