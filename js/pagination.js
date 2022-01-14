@@ -83,7 +83,6 @@ const basePages = () => {
             case 'link_triends':
                 return await getTriends('all', 'week', page)
                     .then(data => {
-                        console.log('data: ', data);
                         if (data) {
                             renderCard(data.results, type);
                         }
@@ -93,7 +92,6 @@ const basePages = () => {
             case 'popular-movies':
                 return await getPopular(type, page)
                     .then(data => {
-                        console.log('data: ', data);
                         if (data) {
                             renderCard(data.results, type);
                         }
@@ -103,7 +101,6 @@ const basePages = () => {
             case 'popular-tv':
                 return await getPopular(type, page)
                     .then(data => {
-                        console.log('data: ', data);
                         if (data) {
                             renderCard(data.results, type);
                         }
@@ -113,7 +110,6 @@ const basePages = () => {
             case 'top-movies':
                 return await getTop(type, page)
                     .then(data => {
-                        console.log('data: ', data);
                         if (data) {
                             renderCard(data.results, type);
                         }
@@ -123,7 +119,6 @@ const basePages = () => {
             case 'top-tv':
                 return await getTop(type, page)
                     .then(data => {
-                        console.log('data: ', data);
                         if (data) {
                             renderCard(data.results, type);
                         }
