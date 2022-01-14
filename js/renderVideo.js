@@ -1,5 +1,6 @@
 import { getTriends, getVideo, getDetails } from "./services.js";
 import renderCard from "./renderCard.js";
+import description from './descriptionMovie.js';
 
 const filmWeek = document.querySelector('.film-week');
 
@@ -39,7 +40,8 @@ const renderVideo = async () => {
         data = await getDetails($_GET('id'), $_GET('type'));
         video = await getVideo(data.id, $_GET('type'));
         firstRender(data, video.results[0]);
-        console.log('video: ', video);
+        
+        description(data, video.results);
     } else {
         data = await getTriends();
 
@@ -51,8 +53,6 @@ const renderVideo = async () => {
         firstRender(firstCard, video.results[0]);
         renderCard(otherCard);
     }
-    console.log('data: ', data);
-
 };
 
 function $_GET(key) {
