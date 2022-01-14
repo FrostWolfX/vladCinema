@@ -2,13 +2,8 @@ const API_KEY = 'c8b6e89e343e71f304c67c2945c29c80';
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const LANGUAGE = '&language=ru-RU'
 
-/*
-/trending/all/day?api_key=<<api_key>>
-*/
-
 const getData = url => fetch(url)
-
-.then(response => {
+    .then(response => {
         if (response.ok) {
             return response.json();
         }
