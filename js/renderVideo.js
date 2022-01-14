@@ -42,6 +42,7 @@ const renderVideo = async () => {
         firstRender(data, video.results[0]);
         
         description(data, video.results);
+        renderCard(video.results);
     } else {
         data = await getTriends();
 
