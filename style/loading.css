@@ -1,0 +1,139 @@
+/**
+Блок загрузки в классе
+<div class="cssload-loader"></div>
+*/
+
+.cssload-loader {
+    position: relative;
+    width: 50vw;
+    height: 100%;
+    left: 25%;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.cssload-loader:before {
+    content: "";
+    position: absolute;
+    background-color: rgba(204, 204, 204, 0.92);
+    top: -8px;
+    left: 0px;
+    height: 30px;
+    width: 0px;
+    z-index: 0;
+    opacity: 1;
+    transform-origin: 100% 0%;
+    -o-transform-origin: 100% 0%;
+    -ms-transform-origin: 100% 0%;
+    -webkit-transform-origin: 100% 0%;
+    -moz-transform-origin: 100% 0%;
+    animation: cssload-loader 5.5s ease-in-out infinite;
+    -o-animation: cssload-loader 5.5s ease-in-out infinite;
+    -ms-animation: cssload-loader 5.5s ease-in-out infinite;
+    -webkit-animation: cssload-loader 5.5s ease-in-out infinite;
+    -moz-animation: cssload-loader 5.5s ease-in-out infinite;
+}
+
+.cssload-loader:after {
+    position: absolute;
+    content: "Загрузка...";
+    left: 0;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+    font-family: Raleway, sans-serif;
+    font-size: 100%;
+    width: 100%;
+    height: 19px;
+    line-height: 15px;
+    left: 0;
+    top: 0;
+}
+
+@keyframes cssload-loader {
+    0% {
+        width: 0px;
+    }
+    70% {
+        width: 100%;
+        opacity: 1;
+    }
+    90% {
+        opacity: 0;
+        width: 100%;
+    }
+    100% {
+        opacity: 0;
+        width: 0px;
+    }
+}
+
+@-o-keyframes cssload-loader {
+    0% {
+        width: 0px;
+    }
+    70% {
+        width: 100%;
+        opacity: 1;
+    }
+    90% {
+        opacity: 0;
+        width: 100%;
+    }
+    100% {
+        opacity: 0;
+        width: 0px;
+    }
+}
+
+@-ms-keyframes cssload-loader {
+    0% {
+        width: 0px;
+    }
+    70% {
+        width: 100%;
+        opacity: 1;
+    }
+    90% {
+        opacity: 0;
+        width: 100%;
+    }
+    100% {
+        opacity: 0;
+        width: 0px;
+    }
+}
+
+@-webkit-keyframes cssload-loader {
+    0% {
+        width: 0px;
+    }
+    70% {
+        width: 100%;
+        opacity: 1;
+    }
+    90% {
+        opacity: 0;
+        width: 100%;
+    }
+    100% {
+        opacity: 0;
+        width: 0px;
+    }
+}
+
+@-moz-keyframes cssload-loader {
+    0% {
+        width: 0px;
+    }
+    70% {
+        width: 100%;
+        opacity: 1;
+    }
+    90% {
+        opacity: 0;
+        width: 100%;
+    }
+    100% {
+        opacity: 0;
+        width: 0px;
+    }
+}

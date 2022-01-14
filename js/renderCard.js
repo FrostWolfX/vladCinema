@@ -1,20 +1,22 @@
 import { getVideo } from "./services.js";
+import loadingBlock from './loading.js';
 
 const listCard = document.querySelector('.other-films__list');
 
 
 const renderCard = (data, type = '') => {
     listCard.textContent = '';
+    loadingBlock.startLoad();
 
     Promise.all(data.map(async(item) => {
-
             const video = await getVideo(item.id, item.media_type || type);
 
             let key = '';
             if (video) {
-                if (video.results[0]) {
-                    key = video.results[0]?.key;
-                }
+                key = video && video.results[0] && video.results[0].key;
+                //if (video.results[0]) {
+                //    key = video.results[0] ?.key;
+                //}
             }
 
 
@@ -41,7 +43,8 @@ const renderCard = (data, type = '') => {
             return card;
         }))
         .then(cards => {
-            listCard.append(...cards)
+            loadingBlock.endLoad();
+            listCard.append(...cards);
         });
 
 
