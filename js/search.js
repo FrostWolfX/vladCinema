@@ -5,19 +5,24 @@ const title = document.querySelector('.other-films__title');
 const filmWeek = document.querySelector('.film-week');
 const searchForm = document.querySelector('.header__search-form');
 const searchInput = document.querySelector('.header__search-input');
+const listCard = document.querySelector('.other-films__list');
 
 const search = () => {
 
     searchForm.addEventListener('submit', event => {
         event.preventDefault();
         if (!searchInput.value) return;
-        
+
 
         searchGet(searchInput.value)
             .then(data => {
+                searchInput.value = '';
+                listCard.textContent = '';
+
                 if (data.results.length) {
                     renderCard(data.results);
                 } else {
+                    filmWeek.remove();
                     throw 'К сожалению по вашему запросу ничего не найдено';
                 }
             })

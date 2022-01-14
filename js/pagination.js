@@ -10,6 +10,8 @@ const pageNext = document.querySelector('.page-next');
 const paginationForm = document.querySelector('.pagination-form');
 const pageInput = document.querySelector('#page');
 
+const filmWeek = document.querySelector('.film-week');
+
 
 const basePages = () => {
     const basePage = {
@@ -50,7 +52,8 @@ const basePages = () => {
     }
 
     function pagePrevClick(event) {
-        event.preventDefault();
+        //event.preventDefault();
+        filmWeek.style.display = 'none';
         if (!(+getPageLS() <= 1)) {
             const prevPage = +getPageLS() - 1;
             basePage.updatePage(prevPage);
@@ -66,7 +69,8 @@ const basePages = () => {
     }
 
     function pageNextClick(event) {
-        event.preventDefault();
+        //event.preventDefault();
+        filmWeek.style.display = 'none';
         const nextPage = +getPageLS() + 1;
         basePage.updatePage(nextPage);
         setPageLS();

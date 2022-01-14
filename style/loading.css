@@ -26,11 +26,11 @@
     -ms-transform-origin: 100% 0%;
     -webkit-transform-origin: 100% 0%;
     -moz-transform-origin: 100% 0%;
-    animation: cssload-loader 5.5s ease-in-out infinite;
-    -o-animation: cssload-loader 5.5s ease-in-out infinite;
-    -ms-animation: cssload-loader 5.5s ease-in-out infinite;
-    -webkit-animation: cssload-loader 5.5s ease-in-out infinite;
-    -moz-animation: cssload-loader 5.5s ease-in-out infinite;
+    animation: cssload-loader 2.5s ease-in-out infinite;
+    -o-animation: cssload-loader 2.5s ease-in-out infinite;
+    -ms-animation: cssload-loader 2.5s ease-in-out infinite;
+    -webkit-animation: cssload-loader 2.5s ease-in-out infinite;
+    -moz-animation: cssload-loader 2.5s ease-in-out infinite;
 }
 
 .cssload-loader:after {

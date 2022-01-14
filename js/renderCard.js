@@ -14,9 +14,6 @@ const renderCard = (data, type = '') => {
             let key = '';
             if (video) {
                 key = video && video.results[0] && video.results[0].key;
-                //if (video.results[0]) {
-                //    key = video.results[0] ?.key;
-                //}
             }
 
 
@@ -24,7 +21,7 @@ const renderCard = (data, type = '') => {
             card.className = 'other-films__item';
 
             const link = document.createElement('a');
-            if (key) {
+            if (key && key != 'undefined') {
                 link.href = `https://youtu.be/${key}`;
             }
             link.className = key ? 'other-films__link tube' : 'other-films__link';
