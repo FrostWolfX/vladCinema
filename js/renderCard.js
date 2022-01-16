@@ -38,7 +38,7 @@ const renderCard = (data, type = '') => {
                     'img/no-poster.png';
 
                 const more = document.createElement('a');
-                more.href = `/description.html?id=${item.id}&type=${item.media_type || type}`;
+                more.href = `description.html?id=${item.id}&type=${item.media_type || type}`;
                 more.classList.add('more');
                 more.dataset.id = item.id;
                 more.textContent = 'Подробнее...';
