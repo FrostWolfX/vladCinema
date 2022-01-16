@@ -30,6 +30,7 @@
 
 .other-films__item {
     position: relative;
+    font-size: 1.15rem;
 }
 
 .other-films__item:nth-child(even) {
