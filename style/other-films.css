@@ -1,5 +1,5 @@
 .other-films {
-    padding: 60px 0;
+    /*padding: 60px 0;*/
 }
 
 .other-films__title {
@@ -7,7 +7,7 @@
     margin: 0 auto;
     font-family: Raleway, sans-serif;
     font-weight: 800;
-    font-size: 120px;
+    font-size: 5rem;
     line-height: 130%;
     text-transform: uppercase;
     opacity: 0.1;
