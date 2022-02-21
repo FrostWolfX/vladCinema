@@ -184,7 +184,7 @@
         margin-bottom: 90px;
     }
     .other-films__item:nth-child(even) {
-        position: static;
+        /*position: static;*/
         top: auto;
     }
 }
