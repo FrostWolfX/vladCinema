@@ -13,11 +13,13 @@ const firstRender = (data, video) => {
             name,
             original_title: originalTitle,
             original_name: originalName,
-
+            id, media_type
         } = data;
+        
         filmWeek.innerHTML = `
         <div class="container film-week__container" data-rating="${voteAverage}">
             <div class="film-week__poster-wrapper">
+            <a href="description.html?id=${id}&amp;type=${media_type}" class="more" data-id="${id}">Подробнее...</a>
                 <img class="film-week__poster" 
                     src="https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces${backdropPath}" 
                     alt="${title || name}">
