@@ -84,7 +84,6 @@ const basePages = () => {
     }
 
     const getData = async(section, type, page) => {
-        console.log('section: ', section);
         switch (section) {
             case 'link_triends':
                 return await getTriends('all', 'week', page)
