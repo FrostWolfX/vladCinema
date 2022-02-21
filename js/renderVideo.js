@@ -5,21 +5,27 @@ import description from './descriptionMovie.js';
 const filmWeek = document.querySelector('.film-week');
 
 const firstRender = (data, video) => {
-        const key = video ? video.key : '';
-        const {
-            vote_average: voteAverage,
-            backdrop_path: backdropPath,
-            title,
-            name,
-            original_title: originalTitle,
-            original_name: originalName,
-            id, media_type
-        } = data;
-        
-        filmWeek.innerHTML = `
+    const key = video ? video.key : '';
+    const {
+        vote_average: voteAverage,
+        backdrop_path: backdropPath,
+        title,
+        name,
+        original_title: originalTitle,
+        original_name: originalName,
+        id, media_type
+    } = data;
+    console.log(window.location.pathname);
+
+    let about = '';
+    if (window.location.pathname === '/index.html') {
+        about = `<a href="description.html?id=${id}&amp;type=${media_type}" class="more" data-id="${id}">Подробнее...</a>`;
+    }
+
+    filmWeek.innerHTML = `
         <div class="container film-week__container" data-rating="${voteAverage}">
             <div class="film-week__poster-wrapper">
-            <a href="description.html?id=${id}&amp;type=${media_type}" class="more" data-id="${id}">Подробнее...</a>
+                ${about}
                 <img class="film-week__poster" 
                     src="https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces${backdropPath}" 
                     alt="${title || name}">
@@ -38,11 +44,11 @@ const firstRender = (data, video) => {
 const renderVideo = async () => {
     let data;
     let video;
-    if($_GET('id') && $_GET('type')) {
+    if ($_GET('id') && $_GET('type')) {
         data = await getDetails($_GET('id'), $_GET('type'));
         video = await getVideo(data.id, $_GET('type'));
         firstRender(data, video.results[0]);
-        
+
         description(data, video.results);
         renderCard(video.results);
     } else {

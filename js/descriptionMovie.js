@@ -3,8 +3,6 @@ const overwrite = document.querySelector('.overwrite');
 const listCard = document.querySelector('.other-films__list');
 
 const description = (data, video) => {
-    console.log('data, video: ', data, video);
-
     const overview = document.createElement('p');
     overview.textContent = data.overview;
     overview.classList.add('overview');
@@ -36,7 +34,6 @@ const description = (data, video) => {
 
     });
     listCard.append(...cards);
-    console.log('cards: ', cards);
 }
 
 export default description;
